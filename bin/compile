@@ -19,10 +19,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
-
-
-
-
 # config
 PJS_VERSION="1.5.0"
 PJS_S3_BUCKET="arachnys-kraken-phantomjs"
@@ -31,6 +27,7 @@ PJS_S3_BUCKET="arachnys-kraken-phantomjs"
 PJS_FILE_NAME="buildpack-phantomjs-${PJS_VERSION}.tar.gz"
 BUILDPACK_PHANTOMJS_PACKAGE="http://${PJS_S3_BUCKET}.s3.amazonaws.com/${PJS_FILE_NAME}"
 
+mkdir -p "$BUILD_DIR/bin"
 mkdir -p $CACHE_DIR
 if ! [ -e $CACHE_DIR/PJS_$FILE_NAME ]; then
   echo "-----> Fetching PhantomJS buildpack binaries"
